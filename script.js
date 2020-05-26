@@ -1,3 +1,4 @@
+//      Library Module      \\
 const library = (function() {
     const getLibrary = () => Object.values(localStorage).map(book => JSON.parse(book));
     const getSortedLibrary = () => library.getLibrary().sort((a, b) => (a.id > b.id)? 1 : -1);
@@ -68,6 +69,11 @@ sampleBooks.map(book => library.addBook(book));
 
 
 //           User Add Book           \\
+const resetForm = () => {
+    const formInputs = document.querySelectorAll("input");
+    formInputs.forEach((input) => (input.value = ""));
+}
+
 document.getElementById('add-new-book').addEventListener('click', function() {
     const title = document.getElementById("title");
     const author = document.getElementById("author");
@@ -92,15 +98,11 @@ document.getElementById('add-new-book').addEventListener('click', function() {
     }
 })
 
-function resetForm() {
-  const formInputs = document.querySelectorAll("input");
-  formInputs.forEach((input) => (input.value = ""));
-}
 
 //         Create Table            \\
 let table = document.querySelector("table");
 
-function generateTableHead() {
+const generateTableHead = () => {
   const headers = Object.keys(library.getLibrary()[0]);
   headers.push("Remove", "Toggle");
   headers.splice(headers.indexOf("id"), 1);
@@ -115,7 +117,7 @@ function generateTableHead() {
   }
 }
 
-function generateTable() {
+const generateTable = () => {
   for (book of library.getSortedLibrary()) {
     let row = table.insertRow();
     for (let key in book) {
@@ -132,35 +134,15 @@ function generateTable() {
   }
 }
 
-function updateLibraryTable() {
-  const body = document.querySelector("body");
-  body.removeChild(table);
-  table = document.createElement("table"); // remove redeclaration?
-  body.appendChild(table);
-
+const updateLibraryTable = () => {
+  table.textContent = '';
   generateTable();
   generateTableHead();
 }
 
-//          Initial         \\
-for (book of library.getSortedLibrary()) {
-  updateLibraryTable(book);
-}
-resetForm();
-
 //           Buttons           \\
-// Obsolete? ID used now
-function getIndex(book) {
-  for (i = 0; i < library.getLibrary().length; i++) {
-    if (book.id == library.getLibrary()[i].id) {
-      return i;
-    }
-  }
-}
-
-function createButton(book, className, text, func) {
+const createButton = (book, className, text, func) => {
   let button = document.createElement("button");
-//   button.value = index;
   button.classList = className;
   button.textContent = text;
   button.onclick = function () {
@@ -169,5 +151,9 @@ function createButton(book, className, text, func) {
   return button;
 }
 
-
+//          Initiate         \\
+for (book of library.getSortedLibrary()) {
+    updateLibraryTable(book);
+}
+resetForm();
 
