@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+    </head>
+    <header>
+        My Library
+    </header>
+    <body>
+        <table>
+            
+        </table>
+
+        <form id='new-book'>
+            <label for='title'>Title: </label>
+            <input id='title' required>
+            <label for='author'>Author: </label>
+            <input id='author' required>
+            <label for='pages'>Pages: </label>
+            <input id='pages' required>
+            <label for='read'>Read?</label>
+            <input id='read' type='checkbox'>
+            <button type="submit" id='add-new-book' onclick="addBookToLibrary()">Add Book</button>
+        </form>
+    </body>
+
+    <script src='script.js'></script>
+</html>

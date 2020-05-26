@@ -1,0 +1,110 @@
+*{
+    background: url('static/library-img.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-transform: capitalize;
+    color: rgb(37, 16, 3);
+
+}
+
+@font-face{
+    font-family: 'midieval';
+    src: url('static/magnificent_2/Magnificent\ Personal\ Use.ttf');
+}
+
+header {
+    font-size: 52px;
+    color: rgba(238, 205, 143, 0.89);
+    margin: auto;
+    padding-top: 30px;
+    font-family: midieval;
+    letter-spacing: 0.13em;
+}
+
+table, th, td , input {
+    border: 1px solid rgb(37, 16, 3);
+    background: rgba(180, 136, 104, 0.897);
+}
+
+th {
+    font-size: 20px;
+}
+
+body {
+    display: flex;
+}
+
+#new-book {
+    position: fixed;
+    margin: auto;
+    left: 50%;
+    top: 15vw;
+    transform: translate(-50%);
+    font-size: 22px;
+    width: 70vw;
+    box-shadow: 0 0 40px 35px rgba(75, 42, 21, 0.808);
+    border-radius: 25%;
+    padding: 2%;
+    font-family: 'midieval';
+    background: rgba(201, 141, 98, 0.719);
+    display: block;
+}
+
+#new-book label {
+    background: rgba(201, 141, 98, 0); 
+}
+
+table {
+    display: block;
+    position: fixed;
+    margin: auto;
+    left: 50%;
+    top: 28vw;
+    transform: translate(-50%);
+    width: auto;
+    max-height: 50vw;
+    overflow: auto;
+    table-layout: auto;
+    font-size: 18px;
+    box-shadow: 0 0 40px 35px rgba(75, 42, 21, 0.808);
+}
+
+button {
+    font-size: 18px;
+    font-family: Apple Chancery, cursive;
+    background: rgba(206, 160, 128, 0.856);
+}
+
+#add-new-book {
+    /* position: fixed;
+    top: 10vw;
+    left: 80vw; */
+    border-radius: 15%;
+    height: 30%;
+    background-color:rgba(177, 91, 42, 0.87);
+    box-shadow: 0 0 10px 10px rgba(206, 160, 128, 0.856);
+    font-size: 1.1em;
+    font-weight: bold; 
+    color: rgb(68, 27, 2);
+}
+
+button:hover {
+    background-color: rgba(173, 144, 123, 0.842);
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+table button {
+    width: 100%;
+}
+
+input {
+    height: 25px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
