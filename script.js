@@ -74,11 +74,13 @@ const resetForm = () => {
     formInputs.forEach((input) => (input.value = ""));
 }
 
-document.getElementById('add-new-book').addEventListener('click', function() {
+document.getElementById('add-new-book').addEventListener('click', function bookForm() {
     const title = document.getElementById("title");
     const author = document.getElementById("author");
     const pages = document.getElementById("pages");
     const read = document.getElementById("read");
+
+    // form validation
     const checkField = (field) => {
       const valueMissing = field.validity.valueMissing;
       if (valueMissing) {
@@ -89,7 +91,6 @@ document.getElementById('add-new-book').addEventListener('click', function() {
       return !valueMissing;
     };
   
-    // form validation
     if ([title, author, pages].every((field) => checkField(field))) {
       const newBook = new Book(title.value, author.value, pages.value, read.checked);
       library.addBook(newBook);
